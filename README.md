@@ -1,5 +1,7 @@
 # create-ronins-react
 
+[![npm version](https://img.shields.io/npm/v/create-ronins-react.svg)](https://www.npmjs.com/package/create-ronins-react)
+
 Scaffold a modern React project with Vite, TypeScript, Tailwind CSS, and shadcn/ui.
 
 ## Usage
