@@ -41,7 +41,7 @@ All tools included in your app:
 </a>
 
 <a href="https://tanstack.com/query" class="tech-card" target="_blank">
-  <img src="/tanstack.svg" alt="TanStack Query" />
+  <img src="/tanstack.png" alt="TanStack Query" />
   <h3>TanStack Query 5</h3>
   <p>Server state management</p>
 </a>
