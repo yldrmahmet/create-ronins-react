@@ -1,0 +1,28 @@
+# Dependencies
+node_modules
+
+# Build outputs
+dist
+
+# Lockfiles (template only - users will have their own)
+template/bun.lock
+template/package-lock.json
+template/yarn.lock
+template/pnpm-lock.yaml
+
+# IDE
+.idea
+.vscode
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Test coverage
+coverage
