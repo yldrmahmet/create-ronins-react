@@ -6,30 +6,32 @@ Scaffold a modern React project with Vite, TypeScript, Tailwind CSS, and shadcn/
 
 ## Usage
 
+> **Pro tip:** We ship updates almost daily. Always use `@latest` or you might miss the good stuff!
+
 ```bash
 npm create ronins-react@latest
 # or
-yarn create ronins-react
+yarn create ronins-react@latest
 # or
-pnpm create ronins-react
+pnpm create ronins-react@latest
 # or
-bun create ronins-react
+bun create ronins-react@latest
 ```
 
 You can also pass the project name directly:
 
 ```bash
-npm create ronins-react my-app
-npm create ronins-react todo-app
-npm create ronins-react portfolio
-npm create ronins-react dashboard
+npm create ronins-react@latest my-app
+npm create ronins-react@latest todo-app
+npm create ronins-react@latest portfolio
+npm create ronins-react@latest dashboard
 ```
 
 Use `.` to scaffold in the current directory:
 
 ```bash
 mkdir my-app && cd my-app
-npm create ronins-react .
+npm create ronins-react@latest .
 ```
 
 ### Start with a blank slate
@@ -37,7 +39,7 @@ npm create ronins-react .
 Use `--clean` flag to skip demo pages and get a minimal "Hello World" setup:
 
 ```bash
-npm create ronins-react my-app --clean
+npm create ronins-react@latest my-app --clean
 ```
 
 Then install dependencies and start:
