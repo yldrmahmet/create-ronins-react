@@ -106,12 +106,37 @@ shadcn/ui components are in your code. Not in node_modules. You can change them.
 
 ## Quick Start
 
-```bash
+::: code-group
+
+```bash [npm]
 npm create ronins-react@latest my-app
 cd my-app
 npm install
 npm run dev
 ```
+
+```bash [bun]
+bun create ronins-react@latest my-app
+cd my-app
+bun install
+bun dev
+```
+
+```bash [pnpm]
+pnpm create ronins-react@latest my-app
+cd my-app
+pnpm install
+pnpm dev
+```
+
+```bash [yarn]
+yarn create ronins-react@latest my-app
+cd my-app
+yarn
+yarn dev
+```
+
+:::
 
 **30 seconds. Done.**
 
