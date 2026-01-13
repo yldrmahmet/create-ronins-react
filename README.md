@@ -32,6 +32,14 @@ mkdir my-app && cd my-app
 npm create ronins-react .
 ```
 
+### Start with a blank slate
+
+Use `--clean` flag to skip demo pages and get a minimal "Hello World" setup:
+
+```bash
+npm create ronins-react my-app --clean
+```
+
 Then install dependencies and start:
 
 ```bash

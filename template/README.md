@@ -1,24 +1,4 @@
-# React Template
-
-Production-ready React starter with modern tooling.
-
-## Quick Start
-
-```bash
-# Option 1: Create (Recommended)
-bun create ronins-react my-app
-cd my-app
-bun install
-bun dev
-
-# Option 2: Clone
-git clone https://github.com/yldrmahmet/create-ronins-react.git my-app
-cd my-app
-bun install
-bun dev
-```
-
-> Also works with `npm create ronins-react` and `pnpm create ronins-react`
+# React App
 
 ## Tech Stack
 
@@ -32,25 +12,24 @@ bun dev
 | Routing       | React Router 7             |
 | Server State  | TanStack Query 5           |
 | Validation    | Zod 4                      |
-| Linting       | ESLint 9 (flat config)     |
+| Linting       | ESLint 9                   |
 | Formatting    | Prettier                   |
 | Git Hooks     | Husky                      |
-| Dead Code     | Knip                       |
 | Testing       | Vitest                     |
-| CI/CD         | GitHub Actions             |
 
 ## Commands
 
 ```bash
 bun dev           # Development server (:5173)
 bun run build     # Production build
-bun check         # Lint + format + typecheck + audit
+bun check         # Lint + format + typecheck
 bun test          # Run tests
+bun clean         # Remove demo content
 ```
 
 ## Project Structure
 
-```
+```text
 src/
 ├── app/
 │   ├── routes/          # Page components
@@ -67,7 +46,3 @@ src/
 ```bash
 bunx shadcn add button input dialog
 ```
-
-## License
-
-MIT

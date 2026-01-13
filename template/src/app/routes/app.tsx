@@ -9,7 +9,7 @@ export default function App() {
         <div className="absolute -inset-4 animate-pulse rounded-full bg-white/10 blur-xl transition-all duration-1000 group-hover:bg-white/20" />
 
         {/* Logo container with animations */}
-        <div className="relative animate-float">
+        <div className="animate-float relative">
           <img
             src="/ronins.svg"
             alt="Ronins Logo"
