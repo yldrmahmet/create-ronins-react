@@ -14,33 +14,63 @@
 
 ## Add a Component
 
-Use this command:
+::: code-group
 
-```bash
+```bash [npm]
+npx shadcn add button
+```
+
+```bash [bun]
 bunx shadcn add button
 ```
+
+```bash [pnpm]
+pnpm dlx shadcn add button
+```
+
+```bash [yarn]
+yarn dlx shadcn add button
+```
+
+:::
 
 This creates `src/components/ui/button.tsx`.
 
 ## Add Many Components
 
-```bash
+::: code-group
+
+```bash [npm]
+npx shadcn add dialog card form input
+```
+
+```bash [bun]
 bunx shadcn add dialog card form input
 ```
 
+```bash [pnpm]
+pnpm dlx shadcn add dialog card form input
+```
+
+```bash [yarn]
+yarn dlx shadcn add dialog card form input
+```
+
+:::
+
 ## Popular Components
 
-| Component | Command | What It Does |
-|-----------|---------|--------------|
-| Button | `bunx shadcn add button` | Clickable button |
-| Dialog | `bunx shadcn add dialog` | Popup window |
-| Card | `bunx shadcn add card` | Box with content |
-| Input | `bunx shadcn add input` | Text field |
-| Form | `bunx shadcn add form` | Form with validation |
-| Table | `bunx shadcn add table` | Data table |
-| Select | `bunx shadcn add select` | Dropdown menu |
-| Tabs | `bunx shadcn add tabs` | Tab navigation |
-| Toast | `bunx shadcn add sonner` | Notifications |
+| Component | What It Does |
+|-----------|--------------|
+| button | Clickable button |
+| dialog | Popup window |
+| card | Box with content |
+| input | Text field |
+| form | Form with validation |
+| table | Data table |
+| select | Dropdown menu |
+| tabs | Tab navigation |
+| sonner | Notifications |
 
 See all: [ui.shadcn.com/docs/components](https://ui.shadcn.com/docs/components)
 

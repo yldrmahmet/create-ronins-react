@@ -43,10 +43,25 @@ routes/
 
 UI components from shadcn/ui. Add more with:
 
-```bash
-bunx shadcn add dialog
-bunx shadcn add card
+::: code-group
+
+```bash [npm]
+npx shadcn add dialog card
 ```
+
+```bash [bun]
+bunx shadcn add dialog card
+```
+
+```bash [pnpm]
+pnpm dlx shadcn add dialog card
+```
+
+```bash [yarn]
+yarn dlx shadcn add dialog card
+```
+
+:::
 
 ### `src/lib/`
 
