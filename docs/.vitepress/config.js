@@ -25,6 +25,32 @@ const enSidebar = [
   }
 ]
 
+const trNav = [
+  { text: 'Rehber', link: '/tr/guide/getting-started' },
+  { text: 'GitHub', link: 'https://github.com/yldrmahmet/create-ronins-react' }
+]
+
+const trSidebar = [
+  {
+    text: 'Giriş',
+    items: [
+      { text: 'Ronins React Nedir?', link: '/tr/guide/what-is-ronins-react' },
+      { text: 'Başlangıç', link: '/tr/guide/getting-started' },
+      { text: 'Teknoloji Yığını', link: '/tr/guide/tech-stack' }
+    ]
+  },
+  {
+    text: 'Rehber',
+    items: [
+      { text: 'Proje Yapısı', link: '/tr/guide/project-structure' },
+      { text: 'Komutlar', link: '/tr/guide/commands' },
+      { text: 'Bileşen Ekleme', link: '/tr/guide/adding-components' },
+      { text: 'CLI Seçenekleri', link: '/tr/guide/cli-options' }
+    ]
+  }
+]
+
+/*
 const zhNav = [
   { text: '指南', link: '/zh/guide/getting-started' },
   { text: 'GitHub', link: 'https://github.com/yldrmahmet/create-ronins-react' }
@@ -174,6 +200,7 @@ const deSidebar = [
     ]
   }
 ]
+*/
 
 export default defineConfig({
   vite: {
@@ -198,6 +225,30 @@ export default defineConfig({
         sidebar: enSidebar
       }
     },
+    tr: {
+      label: 'Türkçe',
+      lang: 'tr',
+      link: '/tr/',
+      themeConfig: {
+        nav: trNav,
+        sidebar: trSidebar,
+        outline: {
+          label: 'Bu sayfada'
+        },
+        docFooter: {
+          prev: 'Önceki',
+          next: 'Sonraki'
+        },
+        lastUpdated: {
+          text: 'Son güncelleme'
+        },
+        returnToTopLabel: 'Başa dön',
+        sidebarMenuLabel: 'Menü',
+        darkModeSwitchLabel: 'Görünüm',
+        langMenuLabel: 'Dil'
+      }
+    }
+    /*
     zh: {
       label: '简体中文',
       lang: 'zh-CN',
@@ -336,6 +387,7 @@ export default defineConfig({
         langMenuLabel: 'Sprache'
       }
     }
+    */
   },
 
   themeConfig: {
