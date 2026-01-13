@@ -17,7 +17,7 @@ Sorun React değil. Sorun: **React ile hangi araçları kullanmalı?**
 
 ## Neden Diğerleri Değil?
 
-### Neden `npm create vite` değil?
+### Neden Vite değil?
 
 Vite mükemmel bir araç. Ama sana **sadece Vite + React** veriyor.
 

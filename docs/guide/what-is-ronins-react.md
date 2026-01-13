@@ -17,7 +17,7 @@ The problem is not React. The problem is: **which tools to use with React?**
 
 ## Why Not Other Options?
 
-### Why not `npm create vite`?
+### Why not Vite?
 
 Vite is great. But it gives you **only Vite + React**.
 
