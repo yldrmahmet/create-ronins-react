@@ -1,6 +1,6 @@
 {
   "name": "create-ronins-react",
-  "version": "1.3.5",
+  "version": "1.3.6",
   "description": "Create modern React apps with Vite, TypeScript, Tailwind, shadcn/ui",
   "type": "module",
   "bin": "./index.js",
