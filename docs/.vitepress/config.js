@@ -1,6 +1,12 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
+  vite: {
+    server: {
+      allowedHosts: true
+    }
+  },
+
   title: 'Ronins React',
   description: 'Create modern React apps with Vite, TypeScript, Tailwind, shadcn/ui',
 
