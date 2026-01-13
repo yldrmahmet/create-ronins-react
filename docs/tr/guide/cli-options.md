@@ -29,26 +29,26 @@ Uygulamanın klasör adı:
 ::: code-group
 
 ```bash [npm]
-npm create ronins-react@latest uygulama-adim
+npm create ronins-react@latest my-app
 ```
 
 ```bash [bun]
-bun create ronins-react@latest uygulama-adim
+bun create ronins-react@latest my-app
 ```
 
 ```bash [pnpm]
-pnpm create ronins-react@latest uygulama-adim
+pnpm create ronins-react@latest my-app
 ```
 
 ```bash [yarn]
-yarn create ronins-react@latest uygulama-adim
+yarn create ronins-react@latest my-app
 ```
 
 :::
 
-`uygulama-adim/` klasörünü oluşturur.
+`my-app/` klasörünü oluşturur.
 
-**İsim yok mu?** Soracak.
+**İsim yok mu?** Sana soracak.
 
 ## Mevcut Klasörü Kullan
 
@@ -57,22 +57,22 @@ yarn create ronins-react@latest uygulama-adim
 ::: code-group
 
 ```bash [npm]
-mkdir uygulama-adim && cd uygulama-adim
+mkdir my-app && cd my-app
 npm create ronins-react@latest .
 ```
 
 ```bash [bun]
-mkdir uygulama-adim && cd uygulama-adim
+mkdir my-app && cd my-app
 bun create ronins-react@latest .
 ```
 
 ```bash [pnpm]
-mkdir uygulama-adim && cd uygulama-adim
+mkdir my-app && cd my-app
 pnpm create ronins-react@latest .
 ```
 
 ```bash [yarn]
-mkdir uygulama-adim && cd uygulama-adim
+mkdir my-app && cd my-app
 yarn create ronins-react@latest .
 ```
 
@@ -91,26 +91,26 @@ Minimal uygulama oluşturur. Demo dosyaları yok.
 ::: code-group
 
 ```bash [npm]
-npm create ronins-react@latest uygulama-adim --clean
+npm create ronins-react@latest my-app --clean
 ```
 
 ```bash [bun]
-bun create ronins-react@latest uygulama-adim --clean
+bun create ronins-react@latest my-app --clean
 ```
 
 ```bash [pnpm]
-pnpm create ronins-react@latest uygulama-adim --clean
+pnpm create ronins-react@latest my-app --clean
 ```
 
 ```bash [yarn]
-yarn create ronins-react@latest uygulama-adim --clean
+yarn create ronins-react@latest my-app --clean
 ```
 
 :::
 
 **Kaldırır:**
-- `src/app/routes/stack.tsx` (Demo sayfası)
-- `public/ronins.svg` (Logo)
+- `src/app/routes/stack.tsx` (demo sayfası)
+- `public/ronins.svg` (logo)
 
 **Oluşturur:**
 - Basit "Hello World" uygulaması

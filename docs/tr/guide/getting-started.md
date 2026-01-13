@@ -1,79 +1,107 @@
 # Başlangıç
 
-## Hızlı Başlat
+## Uygulamanı Oluştur
+
+Paket yöneticini seç ve çalıştır:
 
 ::: code-group
 
 ```bash [npm]
-npm create ronins-react@latest
-```
-
-```bash [bun]
-bun create ronins-react@latest
-```
-
-```bash [pnpm]
-pnpm create ronins-react@latest
-```
-
-```bash [yarn]
-yarn create ronins-react@latest
-```
-
-:::
-
-Proje adı gir. Klasöre git. Bağımlılıkları yükle:
-
-::: code-group
-
-```bash [npm]
-cd proje-adım
+npm create ronins-react@latest my-app
+cd my-app
 npm install
 npm run dev
 ```
 
 ```bash [bun]
-cd proje-adım
+bun create ronins-react@latest my-app
+cd my-app
 bun install
 bun dev
 ```
 
 ```bash [pnpm]
-cd proje-adım
+pnpm create ronins-react@latest my-app
+cd my-app
 pnpm install
 pnpm dev
 ```
 
 ```bash [yarn]
-cd proje-adım
-yarn install
+yarn create ronins-react@latest my-app
+cd my-app
+yarn
 yarn dev
 ```
 
 :::
 
-`http://localhost:5173` adresini aç. Hazırsın.
+Tarayıcında `http://localhost:5173` adresini aç. Tamam!
 
-## Ne Alıyorsun
+## Temiz Mod
 
-```
-proje-adım/
-├── src/
-│   ├── app/
-│   │   ├── routes/        # Sayfaların
-│   │   ├── providers.tsx  # Uygulama sağlayıcıları
-│   │   └── router.tsx     # Yönlendirici yapılandırması
-│   ├── components/
-│   │   └── ui/            # shadcn/ui bileşenleri
-│   ├── lib/               # Yardımcılar
-│   └── main.tsx           # Giriş noktası
-├── index.html
-├── vite.config.ts
-└── package.json
+Minimal bir uygulama mı istiyorsun? Demo sayfaları yok mu? `--clean` kullan:
+
+::: code-group
+
+```bash [npm]
+npm create ronins-react@latest my-app --clean
 ```
 
-## Sonraki Adımlar
+```bash [bun]
+bun create ronins-react@latest my-app --clean
+```
 
-1. [Proje yapısını](/tr/guide/project-structure) öğren
-2. [shadcn/ui bileşenleri](/tr/guide/adding-components) ekle
-3. [Mevcut komutları](/tr/guide/commands) gör
+```bash [pnpm]
+pnpm create ronins-react@latest my-app --clean
+```
+
+```bash [yarn]
+yarn create ronins-react@latest my-app --clean
+```
+
+:::
+
+Bunları kaldırır:
+- Demo sayfaları
+- Logo dosyası
+
+Basit bir "Hello World" uygulaması alırsın.
+
+## Mevcut Klasörü Kullan
+
+Bulunduğun klasörde oluşturmak mı istiyorsun? `.` kullan:
+
+::: code-group
+
+```bash [npm]
+mkdir my-app && cd my-app
+npm create ronins-react@latest .
+```
+
+```bash [bun]
+mkdir my-app && cd my-app
+bun create ronins-react@latest .
+```
+
+```bash [pnpm]
+mkdir my-app && cd my-app
+pnpm create ronins-react@latest .
+```
+
+```bash [yarn]
+mkdir my-app && cd my-app
+yarn create ronins-react@latest .
+```
+
+:::
+
+::: warning
+Klasör boş olmalı.
+:::
+
+## Sırada Ne Var?
+
+- [Proje Yapısı](/tr/guide/project-structure) — Tüm dosyaları gör
+- [Komutlar](/tr/guide/commands) — Tüm komutları gör
+- [Bileşen Ekle](/tr/guide/adding-components) — Butonlar, diyaloglar vb. ekle

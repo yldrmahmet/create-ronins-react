@@ -4,13 +4,13 @@
 
 [shadcn/ui](https://ui.shadcn.com) sana hazır bileşenler verir:
 - Butonlar
-- Diyaloglar (Popup'lar)
+- Diyaloglar (popup'lar)
 - Formlar
 - Kartlar
 - Tablolar
 - Ve daha fazlası...
 
-**Önemli:** Bileşenler SENİN koduna gelir. node_modules'a değil. Değiştirebilirsin.
+**Önemli:** Bileşenler SENİN koduna gider. node_modules'a değil. Değiştirebilirsin.
 
 ## Bileşen Ekle
 
@@ -82,7 +82,7 @@ import { Button } from "@/components/ui/button"
 export default function MyPage() {
   return (
     <Button onClick={() => alert("Merhaba!")}>
-      Tıkla
+      Tıkla Beni
     </Button>
   )
 }
@@ -132,7 +132,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default: "bg-primary text-white",
-        // Kendininki ekle:
+        // Kendininkini ekle:
         success: "bg-green-500 text-white hover:bg-green-600",
       }
     }

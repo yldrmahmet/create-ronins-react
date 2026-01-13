@@ -1,13 +1,13 @@
 # Teknoloji Yığını
 
-Uygulamanızdaki tüm araçlar:
+Uygulamanıza dahil tüm araçlar:
 
 <div class="tech-grid">
 
 <a href="https://vite.dev" class="tech-card" target="_blank">
   <img src="/vite.svg" alt="Vite" />
   <h3>Vite 7</h3>
-  <p>Anında HMR'li build aracı</p>
+  <p>Anında HMR ile build aracı</p>
 </a>
 
 <a href="https://react.dev" class="tech-card" target="_blank">
@@ -19,7 +19,7 @@ Uygulamanızdaki tüm araçlar:
 <a href="https://www.typescriptlang.org" class="tech-card" target="_blank">
   <img src="/typescript.svg" alt="TypeScript" />
   <h3>TypeScript 5.9</h3>
-  <p>Tip güvenli JavaScript</p>
+  <p>Tip-güvenli JavaScript</p>
 </a>
 
 <a href="https://tailwindcss.com" class="tech-card" target="_blank">
@@ -55,7 +55,7 @@ Uygulamanızdaki tüm araçlar:
 <a href="https://eslint.org" class="tech-card" target="_blank">
   <img src="/eslint.svg" alt="ESLint" />
   <h3>ESLint 9</h3>
-  <p>Koddaki hataları bul</p>
+  <p>Kodda hata bul</p>
 </a>
 
 <a href="https://prettier.io" class="tech-card" target="_blank">
@@ -67,7 +67,7 @@ Uygulamanızdaki tüm araçlar:
 <a href="https://vitest.dev" class="tech-card" target="_blank">
   <img src="/vitest.svg" alt="Vitest" />
   <h3>Vitest</h3>
-  <p>Birim testleri</p>
+  <p>Birim testi</p>
 </a>
 
 <a href="https://typicode.github.io/husky" class="tech-card" target="_blank">
@@ -93,7 +93,7 @@ React hala 1 numara. Geliştiricilerin %40'ı kullanıyor. 11 milyon web sitesi 
 ---
 
 ### TypeScript
-TypeScript, kodu çalıştırmadan önce hataları bulur. Artık endüstri standardı. Gerçek bir alternatifi yok.
+TypeScript, kodunu çalıştırmadan önce hataları bulur. Artık endüstri standardı. Gerçek bir alternatifi yok.
 
 ---
 
@@ -108,7 +108,7 @@ shadcn/ui farklı. Bileşenler SENİN koduna kopyalanır. Sana ait. Değiştireb
 ---
 
 ### React Router
-React Router, React için en çok kullanılan router. 2014'ten beri var. Çok kararlı. Çok kaynak mevcut. TanStack Router daha iyi TypeScript desteğine sahip ama React Router daha kanıtlanmış.
+React Router, React için en çok kullanılan router. 2014'ten beri var. Çok stabil. Çok kaynak mevcut. TanStack Router daha iyi TypeScript desteğine sahip ama React Router daha kanıtlanmış.
 
 ---
 
@@ -121,7 +121,7 @@ TanStack Query, API çağrıları için en iyisi. Veriyi önbelleğe alır. Arka
 Zod, verilerin çalışma zamanında doğru olup olmadığını kontrol eder. TypeScript ile harika çalışır. 78+ kütüphane entegrasyonu var. Çok popüler.
 
 ::: tip Valibot'u İzliyoruz
-[Valibot](https://valibot.dev) yeni bir doğrulama kütüphanesi. Zod'dan **%90 daha küçük** (1.37 KB vs 17.7 KB). Aynı API stili. Ekosistem büyüdükçe gelecekte Valibot'a geçebiliriz. Şimdilik daha fazla entegrasyona ve dokümantasyona sahip olduğu için Zod kullanıyoruz.
+[Valibot](https://valibot.dev) yeni bir doğrulama kütüphanesi. Zod'dan **%90 daha küçük** (1.37 KB vs 17.7 KB). Aynı API stili. Ekosistemi büyüdüğünde gelecekte Valibot'a geçebiliriz. Şimdilik daha fazla entegrasyona ve dokümantasyona sahip olduğu için Zod kullanıyoruz.
 :::
 
 ---
@@ -135,7 +135,7 @@ ESLint hataları bulur. Prettier kodu formatlar. Birlikte kodunu temiz tutar.
 - Biome %80 eklenti kapsamına sahip
 - ESLint için daha fazla kaynak ve yardım mevcut
 
-Biome'un ekosistemi büyüdükçe geçişi düşüneceğiz.
+Biome'un ekosistemi büyüdüğünde geçişi düşüneceğiz.
 :::
 
 ---
@@ -157,11 +157,11 @@ Sürekli yeni araçları değerlendiriyoruz. İzlediklerimiz:
 | Mevcut | İzlenen | Neden |
 |--------|---------|-------|
 | ESLint + Prettier | **Biome** | 20 kat daha hızlı, tek araç |
-| Zod | **Valibot** | %90 daha küçük bundle boyutu |
+| Zod | **Valibot** | %90 daha küçük bundle |
 | Husky | **Lefthook** | Paralel yürütme, %50 daha hızlı |
 | React Router | **TanStack Router** | Daha iyi TypeScript desteği |
 
-**Hızdan önce kararlılığı** önceliklendiriyoruz. Bu alternatifler olgunlaştıkça geçişi değerlendireceğiz.
+**Hızdan önce kararlılığı** önceliklendiriyoruz. Bu alternatifler olgunlaştığında geçişi değerlendireceğiz.
 
 <style>
 .tech-grid {

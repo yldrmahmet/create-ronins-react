@@ -3,7 +3,7 @@
 Uygulamanız şöyle görünür:
 
 ```
-proje-adım/
+my-app/
 ├── public/
 │   └── ronins.svg          # Logo (--clean ile kaldırılır)
 ├── src/
@@ -74,7 +74,7 @@ import { cn } from "@/lib/utils"
 <div className={cn("text-red-500", isActive && "font-bold")} />
 ```
 
-## Dosyalar Nasıl Çalışır
+## Dosyalar Nasıl Birlikte Çalışır
 
 | Dosya | Ne Yapar |
 |-------|----------|

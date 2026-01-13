@@ -24,7 +24,7 @@ yarn dev
 
 :::
 
-`http://localhost:5173` açılır. Değişiklikler anında görünür.
+`http://localhost:5173` açar. Değişiklikler anında görünür.
 
 ## Prodüksiyon için Derle
 
@@ -93,9 +93,9 @@ yarn check
 :::
 
 Tüm kontrolleri çalıştırır:
-- ESLint (hataları bul)
-- Prettier (format kontrolü)
-- TypeScript (tip kontrolü)
+- ESLint (hata bul)
+- Prettier (format kontrol)
+- TypeScript (tip kontrol)
 
 ## Hata Bul (Lint)
 
@@ -163,7 +163,7 @@ yarn format
 
 :::
 
-Kodu güzelleştirir. Boşlukları, tırnakları vb. düzeltir.
+Kodu güzel yapar. Boşlukları, tırnakları vb. düzeltir.
 
 ## Testleri Çalıştır
 
@@ -233,7 +233,7 @@ yarn clean
 
 :::
 
-Demo dosyalarını kaldırır. Temiz bir "Hello World" uygulaması verir.
+Demo dosyalarını kaldırır. Temiz "Hello World" uygulaması verir.
 
 ## Tüm Komutlar
 
@@ -242,7 +242,7 @@ Demo dosyalarını kaldırır. Temiz bir "Hello World" uygulaması verir.
 | `dev` | Geliştirme sunucusunu başlat |
 | `build` | Prodüksiyon için derle |
 | `check` | Tüm kontrolleri çalıştır |
-| `lint` | Hataları bul |
+| `lint` | Hata bul |
 | `format` | Kodu güzelleştir |
 | `test` | Testleri çalıştır (izle) |
 | `test:run` | Testleri çalıştır (bir kez) |
