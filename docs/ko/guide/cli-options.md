@@ -110,7 +110,7 @@ yarn create ronins-react@latest my-app --clean
 
 **제거됨:**
 - `src/app/routes/stack.tsx` (데모 페이지)
-- `public/ronins.svg` (로고)
+- `public/ronins.png` (로고)
 
 **생성됨:**
 - 간단한 "Hello World" 앱

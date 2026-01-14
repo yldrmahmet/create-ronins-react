@@ -5,7 +5,7 @@ Your app looks like this:
 ```
 my-app/
 ├── public/
-│   └── ronins.svg          # Logo (removed with --clean)
+│   └── ronins.png          # Logo (removed with --clean)
 ├── src/
 │   ├── app/
 │   │   ├── routes/         # Your pages

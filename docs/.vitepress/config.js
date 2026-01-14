@@ -209,8 +209,8 @@ export default defineConfig({
     }
   },
 
-  title: 'Ronins React',
-  description: 'Create modern React apps with Vite, TypeScript, Tailwind, shadcn/ui',
+  title: 'Ronins React | Stop Researching. Start Building.',
+  description: 'A production-ready React 19 starter with battle-tested defaults. Features Vite 7, Tailwind CSS 4, TypeScript, SWC, and shadcn/ui. Zero config.',
 
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }]
@@ -245,7 +245,11 @@ export default defineConfig({
         returnToTopLabel: 'Başa dön',
         sidebarMenuLabel: 'Menü',
         darkModeSwitchLabel: 'Görünüm',
-        langMenuLabel: 'Dil'
+        langMenuLabel: 'Dil',
+        footer: {
+          message: 'MIT Lisansı altında yayınlanmıştır.',
+          copyright: 'Telif Hakkı © 2025 Roninslab Teknoloji Ltd. Şti.'
+        }
       }
     }
     /*
@@ -392,6 +396,7 @@ export default defineConfig({
 
   themeConfig: {
     logo: '/logo.svg',
+    siteTitle: 'Ronins React',
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/yldrmahmet/create-ronins-react' },
@@ -400,7 +405,7 @@ export default defineConfig({
 
     footer: {
       message: 'Released under the MIT License.',
-      copyright: 'Copyright © 2025 yldrmahmet'
+      copyright: 'Copyright © 2025 Roninslab Technology Ltd.'
     },
 
     search: {

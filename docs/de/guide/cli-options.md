@@ -110,7 +110,7 @@ yarn create ronins-react@latest my-app --clean
 
 **Entfernt:**
 - `src/app/routes/stack.tsx` (Demo-Seite)
-- `public/ronins.svg` (Logo)
+- `public/ronins.png` (Logo)
 
 **Erstellt:**
 - Einfache "Hello World" App

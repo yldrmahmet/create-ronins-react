@@ -110,7 +110,7 @@ yarn create ronins-react@latest my-app --clean
 
 **削除されるもの：**
 - `src/app/routes/stack.tsx`（デモページ）
-- `public/ronins.svg`（ロゴ）
+- `public/ronins.png`（ロゴ）
 
 **作成されるもの：**
 - シンプルな "Hello World" アプリ

@@ -324,7 +324,8 @@ ${cmd.x} shadcn add input dialog form
 function cleanProject(targetDir) {
   const demoFiles = [
     "src/app/routes/stack.tsx",
-    "public/ronins.svg",
+    "public/ronins.png",
+    "public/favicon.png",
   ];
 
   for (const file of demoFiles) {

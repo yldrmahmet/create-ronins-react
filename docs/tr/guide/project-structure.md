@@ -5,7 +5,7 @@ Projen şöyle görünüyor:
 ```
 my-app/
 ├── public/
-│   └── ronins.svg          # Logo (--clean ile silinir)
+│   └── ronins.png          # Logo (--clean ile silinir)
 ├── src/
 │   ├── app/
 │   │   ├── routes/         # Sayfaların

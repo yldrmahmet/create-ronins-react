@@ -110,7 +110,7 @@ yarn create ronins-react@latest my-app --clean
 
 **Silinen dosyalar:**
 - `src/app/routes/stack.tsx` (demo sayfası)
-- `public/ronins.svg` (logo)
+- `public/ronins.png` (logo)
 
 **Sonuç:**
 - Sade "Merhaba Dünya" projesi

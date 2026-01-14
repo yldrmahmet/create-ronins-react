@@ -11,7 +11,7 @@ export default function App() {
         {/* Logo container with animations */}
         <div className="animate-float relative">
           <img
-            src="/ronins.svg"
+            src="/ronins.png"
             alt="Ronins Logo"
             className="h-24 w-24 drop-shadow-[0_0_15px_rgba(255,255,255,0.3)] transition-all duration-500 group-hover:scale-110 group-hover:drop-shadow-[0_0_25px_rgba(255,255,255,0.5)]"
           />

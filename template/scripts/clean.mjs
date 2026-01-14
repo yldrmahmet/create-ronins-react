@@ -8,7 +8,8 @@ import { createInterface } from "node:readline";
 
 const FILES_TO_DELETE = [
   "src/app/routes/stack.tsx",
-  "public/ronins.svg",
+  "public/ronins.png",
+  "public/favicon.png",
 ];
 
 const COLORS = {

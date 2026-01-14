@@ -5,7 +5,7 @@
 ```
 my-app/
 ├── public/
-│   └── ronins.svg          # ロゴ（--clean で削除）
+│   └── ronins.png          # ロゴ（--clean で削除）
 ├── src/
 │   ├── app/
 │   │   ├── routes/         # ページ

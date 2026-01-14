@@ -110,7 +110,7 @@ yarn create ronins-react@latest my-app --clean
 
 **移除：**
 - `src/app/routes/stack.tsx`（演示页面）
-- `public/ronins.svg`（logo）
+- `public/ronins.png`（logo）
 
 **创建：**
 - 简单的 "Hello World" 应用

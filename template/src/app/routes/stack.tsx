@@ -21,7 +21,7 @@ export default function Stack() {
     <div className="flex min-h-screen flex-col items-center justify-center bg-neutral-950 p-4">
       <div className="w-full max-w-md">
         <div className="mb-6 flex items-center gap-3">
-          <img src="/ronins.svg" alt="Ronins" className="h-8 w-8" />
+          <img src="/ronins.png" alt="Ronins" className="h-8 w-8" />
           <h1 className="text-2xl font-bold text-white">Tech Stack</h1>
         </div>
         <ul className="mb-8 space-y-2">

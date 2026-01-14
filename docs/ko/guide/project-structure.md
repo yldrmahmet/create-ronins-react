@@ -5,7 +5,7 @@
 ```
 my-app/
 ├── public/
-│   └── ronins.svg          # 로고 (--clean으로 제거됨)
+│   └── ronins.png          # 로고 (--clean으로 제거됨)
 ├── src/
 │   ├── app/
 │   │   ├── routes/         # 페이지들
