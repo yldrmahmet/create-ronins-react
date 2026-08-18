@@ -15,6 +15,8 @@ const PACKAGE_MANAGERS = [
   {
     name: "bun",
     createVite: (name) => ["bun", "create", "vite", name, "--template", VITE_TEMPLATE, "--no-interactive"],
+    addDependencies: (packages) => ["bun", "add", ...packages],
+    devCommand: "bun dev",
     // Official install methods: bun.com/docs/installation
     installCommand: "npm install -g bun",
     // Searched when a fresh install has not reached PATH yet
@@ -23,6 +25,8 @@ const PACKAGE_MANAGERS = [
   {
     name: "pnpm",
     createVite: (name) => ["pnpm", "create", "vite", name, "--template", VITE_TEMPLATE, "--no-interactive"],
+    addDependencies: (packages) => ["pnpm", "add", ...packages],
+    devCommand: "pnpm dev",
     // Official install methods: pnpm.io/installation
     installCommand: isWindows
       ? "npx get-pnpm"
@@ -37,12 +41,16 @@ const PACKAGE_MANAGERS = [
   {
     name: "npm",
     createVite: (name) => ["npm", "create", "vite@latest", name, "--yes", "--", "--template", VITE_TEMPLATE, "--no-interactive"],
+    addDependencies: (packages) => ["npm", "install", ...packages],
+    devCommand: "npm run dev",
     installCommand: null, // ships with Node.js
     knownBinDirs: [],
   },
   {
     name: "yarn",
     createVite: (name) => ["yarn", "create", "vite", name, "--template", VITE_TEMPLATE, "--no-interactive"],
+    addDependencies: (packages) => ["yarn", "add", ...packages],
+    devCommand: "yarn dev",
     // Official install method: yarnpkg.com/getting-started/install (Corepack)
     installCommand: "npm install -g corepack && corepack enable yarn",
     knownBinDirs: [],
@@ -198,6 +206,41 @@ function blankSlate(projectDir, projectName) {
   writeFileSync(indexHtmlPath, withoutFavicon);
 }
 
+// Steps verified against tailwindcss.com/docs/installation/using-vite
+const TAILWIND_PACKAGES = ["tailwindcss", "@tailwindcss/vite"];
+
+function setUpTailwind(projectDir) {
+  p.log.step("Wiring up Tailwind CSS");
+
+  const configPath = join(projectDir, "vite.config.ts");
+  const config = readFileSync(configPath, "utf8")
+    .replace(/^(import react from .*)$/m, `$1\nimport tailwindcss from '@tailwindcss/vite'`)
+    .replace(/plugins:\s*\[\s*react\(\)\s*\]/, "plugins: [react(), tailwindcss()]");
+
+  // A silent no-op here would ship a project where Tailwind is installed but dead,
+  // so fail loudly if the template no longer looks the way we expect.
+  if (!config.includes("@tailwindcss/vite") || !config.includes("tailwindcss()")) {
+    p.log.error("Could not add the Tailwind plugin to vite.config.ts: unexpected file contents.");
+    process.exit(1);
+  }
+
+  writeFileSync(configPath, config);
+  writeFileSync(join(projectDir, "src", "index.css"), '@import "tailwindcss";\n');
+}
+
+function installDependencies({ pm, found }, projectDir) {
+  const [, ...args] = pm.addDependencies(TAILWIND_PACKAGES);
+  const spin = p.spinner();
+  spin.start(`Installing dependencies with ${pm.name} (this can take a minute)`);
+  const result = spawnSync(found.binary, args, { cwd: projectDir, shell: isWindows, encoding: "utf8" });
+  spin.stop(result.status === 0 ? "Dependencies installed" : "Installing dependencies failed");
+
+  if (result.status !== 0) {
+    if (result.stderr) p.log.error(result.stderr.trim().split("\n").slice(-5).join("\n"));
+    process.exit(1);
+  }
+}
+
 async function main() {
   let options;
   try {
@@ -238,8 +281,11 @@ async function main() {
   const selection = await selectPackageManager(options.packageManager, options.assumeYes);
   scaffoldVite(selection, projectDir, projectName, overwrite);
   blankSlate(projectDir, projectName);
+  setUpTailwind(projectDir);
+  installDependencies(selection, projectDir);
 
-  p.outro(`Done! "${projectName}" is ready with a blank page.`);
+  p.note(`cd ${projectName}\n${selection.pm.devCommand}`, "Start building");
+  p.outro(`Done! "${projectName}" is ready with React, Vite and Tailwind CSS.`);
 }
 
 if (import.meta.main) main();

@@ -79,6 +79,7 @@ export function writePackageManagerStub(sandbox, name, { version = "1.0.0", dir 
       `writeFileSync(join(target, "src", "App.css"), ".logo { padding: 2em }\\n");\n` +
       `writeFileSync(join(target, "src", "index.css"), ":root { --accent: #aa3bff }\\n");\n` +
       `writeFileSync(join(target, "src", "main.tsx"), "import './index.css'\\n");\n` +
+      `writeFileSync(join(target, "vite.config.ts"), "import { defineConfig } from 'vite'\\nimport react from '@vitejs/plugin-react'\\n\\n// https://vite.dev/config/\\nexport default defineConfig({\\n  plugins: [react()],\\n})\\n");\n` +
       `writeFileSync(join(target, "src", "assets", "react.svg"), "<svg/>");\n` +
       `writeFileSync(join(target, "public", "favicon.svg"), "<svg/>");\n` +
       `writeFileSync(join(target, "public", "icons.svg"), "<svg/>");\n`,

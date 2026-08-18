@@ -226,14 +226,14 @@ describe("blank slate", () => {
     assert.doesNotMatch(app, /App\.css/);
   });
 
-  test("empties the stylesheet without deleting it", () => {
+  test("keeps the stylesheet file but drops the demo styles from it", () => {
     writePackageManagerStub(sandbox, "bun");
 
     runCli(sandbox, ["my-app", "--pm", "bun"]);
 
     // main.tsx still imports it, so the file has to exist
-    assert.equal(readProjectFile("src", "index.css"), "");
     assert.ok(existsSync(join(sandbox.workDir, "my-app", "src", "main.tsx")));
+    assert.doesNotMatch(readProjectFile("src", "index.css"), /--accent/);
   });
 
   test("drops the favicon link so nothing points at a deleted file", () => {
@@ -244,6 +244,92 @@ describe("blank slate", () => {
     const html = readProjectFile("index.html");
     assert.doesNotMatch(html, /rel="icon"/);
     assert.match(html, /<title>my-app<\/title>/);
+  });
+});
+
+describe("tailwind setup", () => {
+  test("adds the plugin to vite.config.ts without losing the react plugin", () => {
+    writePackageManagerStub(sandbox, "bun");
+
+    const result = runCli(sandbox, ["my-app", "--pm", "bun"]);
+
+    assert.equal(result.status, 0, result.output);
+    const config = readFileSync(join(sandbox.workDir, "my-app", "vite.config.ts"), "utf8");
+    assert.match(config, /import tailwindcss from '@tailwindcss\/vite'/);
+    assert.match(config, /plugins: \[react\(\), tailwindcss\(\)\]/);
+  });
+
+  test("writes the Tailwind import as the only stylesheet content", () => {
+    writePackageManagerStub(sandbox, "bun");
+
+    runCli(sandbox, ["my-app", "--pm", "bun"]);
+
+    assert.equal(readFileSync(join(sandbox.workDir, "my-app", "src", "index.css"), "utf8"), '@import "tailwindcss";\n');
+  });
+
+  for (const [pm, expected] of [
+    ["bun", "bun add tailwindcss @tailwindcss/vite"],
+    ["pnpm", "pnpm add tailwindcss @tailwindcss/vite"],
+    ["npm", "npm install tailwindcss @tailwindcss/vite"],
+    ["yarn", "yarn add tailwindcss @tailwindcss/vite"],
+  ]) {
+    test(`${pm}: installs the packages with its own add command`, () => {
+      writePackageManagerStub(sandbox, pm);
+
+      const result = runCli(sandbox, ["my-app", "--pm", pm]);
+
+      assert.equal(result.status, 0, result.output);
+      assert.ok(readCalls(sandbox).includes(expected), `expected "${expected}" to run`);
+    });
+  }
+
+  test("stops when the install fails instead of claiming success", () => {
+    writeStub(
+      sandbox,
+      "bun",
+      `if (args[0] === "--version") { console.log("1.3.0"); process.exit(0); }\n` +
+        `if (args[0] === "create") {\n` +
+        `  const target = args[2];\n` +
+        `  mkdirSync(join(target, "src"), { recursive: true });\n` +
+        `  writeFileSync(join(target, "package.json"), "{}");\n` +
+        `  writeFileSync(join(target, "index.html"), "<html></html>");\n` +
+        `  writeFileSync(join(target, "src", "App.tsx"), "x");\n` +
+        `  writeFileSync(join(target, "src", "index.css"), "x");\n` +
+        `  writeFileSync(join(target, "vite.config.ts"), "import react from '@vitejs/plugin-react'\\nexport default defineConfig({\\n  plugins: [react()],\\n})\\n");\n` +
+        `  process.exit(0);\n` +
+        `}\n` +
+        `console.error("network unreachable");\n` +
+        `process.exit(1);\n`,
+    );
+
+    const result = runCli(sandbox, ["my-app", "--pm", "bun"]);
+
+    assert.equal(result.status, 1);
+    assert.match(result.output, /Installing dependencies failed/);
+    assert.doesNotMatch(result.output, /Done!/);
+  });
+
+  test("refuses to continue if vite.config.ts is not shaped as expected", () => {
+    writeStub(
+      sandbox,
+      "bun",
+      `if (args[0] === "--version") { console.log("1.3.0"); process.exit(0); }\n` +
+        `if (args[0] === "create") {\n` +
+        `  const target = args[2];\n` +
+        `  mkdirSync(join(target, "src"), { recursive: true });\n` +
+        `  writeFileSync(join(target, "package.json"), "{}");\n` +
+        `  writeFileSync(join(target, "index.html"), "<html></html>");\n` +
+        `  writeFileSync(join(target, "src", "App.tsx"), "x");\n` +
+        `  writeFileSync(join(target, "src", "index.css"), "x");\n` +
+        `  writeFileSync(join(target, "vite.config.ts"), "export default {}\\n");\n` +
+        `}\n` +
+        `process.exit(0);\n`,
+    );
+
+    const result = runCli(sandbox, ["my-app", "--pm", "bun"]);
+
+    assert.equal(result.status, 1);
+    assert.match(result.output, /unexpected file contents/);
   });
 });
 
