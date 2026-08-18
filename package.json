@@ -1,14 +1,16 @@
 {
   "name": "create-ronins-react",
   "version": "2.0.0",
-  "description": "Create production-ready React apps with Vite 8, TypeScript, Tailwind CSS 4, shadcn/ui, React Router 8, TanStack Query. Zero config, modern stack.",
+  "description": "Interactive scaffolder for production-ready React apps: pick your package manager, then get the latest Vite, TypeScript and Tailwind CSS.",
   "type": "module",
   "bin": "./index.js",
   "files": [
     "index.js",
-    "template",
     "README.md"
   ],
+  "scripts": {
+    "test": "node --test \"test/*.test.mjs\""
+  },
   "keywords": [
     "create",
     "react",
@@ -19,9 +21,7 @@
     "tailwindcss",
     "tailwind-4",
     "typescript",
-    "shadcn",
-    "shadcn-ui",
-    "template",
+    "oxlint",
     "starter",
     "boilerplate",
     "scaffold",
@@ -30,21 +30,12 @@
     "cra-alternative",
     "react-template",
     "react-starter",
-    "react-boilerplate",
     "vite-react",
     "vite-template",
-    "react-router",
-    "react-router-8",
-    "tanstack-query",
-    "react-query",
-    "zod",
-    "eslint-10",
-    "vitest",
-    "husky",
     "bun",
+    "pnpm",
     "modern-react",
     "production-ready",
-    "enterprise",
     "frontend",
     "spa",
     "cli"
@@ -64,7 +55,7 @@
     "url": "https://github.com/sponsors/yldrmahmet"
   },
   "engines": {
-    "node": ">=22.22.0"
+    "node": ">=22.18.0"
   },
   "dependencies": {
     "@clack/prompts": "^1.7.0"

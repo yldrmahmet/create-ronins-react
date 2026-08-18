@@ -79,7 +79,7 @@ function exitCancelled() {
   process.exit(1);
 }
 
-async function selectPackageManager(preselected) {
+async function selectPackageManager(preselected, assumeYes) {
   const detections = PACKAGE_MANAGERS.map((pm) => ({ pm, found: detect(pm) }));
 
   let choice = preselected;
@@ -112,10 +112,12 @@ async function selectPackageManager(preselected) {
     process.exit(1);
   }
 
-  const install = await p.confirm({
-    message: `${selected.pm.name} is not installed. Install it now with: ${selected.pm.installCommand}`,
-  });
-  if (p.isCancel(install) || !install) exitCancelled();
+  if (!assumeYes) {
+    const install = await p.confirm({
+      message: `${selected.pm.name} is not installed. Install it now with: ${selected.pm.installCommand}`,
+    });
+    if (p.isCancel(install) || !install) exitCancelled();
+  }
 
   const spin = p.spinner();
   spin.start(`Installing ${selected.pm.name}...`);
@@ -149,17 +151,38 @@ function scaffoldVite({ pm, found }, projectDir, projectName, overwrite) {
   }
 }
 
+export function parseArgs(argv) {
+  const options = { projectName: undefined, packageManager: undefined, assumeYes: false };
+  for (let i = 0; i < argv.length; i++) {
+    const arg = argv[i];
+    if (arg === "--pm") {
+      options.packageManager = argv[++i];
+    } else if (arg === "--yes" || arg === "-y") {
+      options.assumeYes = true;
+    } else if (arg.startsWith("-")) {
+      throw new Error(`Unknown option: ${arg}`);
+    } else if (options.projectName === undefined) {
+      options.projectName = arg;
+    }
+  }
+  if (options.packageManager === undefined && argv.includes("--pm")) {
+    throw new Error("--pm requires a package manager name");
+  }
+  return options;
+}
+
 async function main() {
-  const args = process.argv.slice(2);
-  const pmFlagIndex = args.indexOf("--pm");
-  const preselectedPm = pmFlagIndex !== -1 ? args[pmFlagIndex + 1] : undefined;
-  const positional = args.filter(
-    (arg, i) => !arg.startsWith("--") && (pmFlagIndex === -1 || i !== pmFlagIndex + 1),
-  );
+  let options;
+  try {
+    options = parseArgs(process.argv.slice(2));
+  } catch (error) {
+    console.error(error.message);
+    process.exit(1);
+  }
 
   p.intro("create-ronins-react");
 
-  let projectName = positional[0];
+  let projectName = options.projectName;
   if (!projectName) {
     projectName = await p.text({
       message: "Project name:",
@@ -175,18 +198,20 @@ async function main() {
   const projectDir = resolve(process.cwd(), projectName);
   let overwrite = false;
   if (existsSync(projectDir) && readdirSync(projectDir).some((entry) => entry !== ".git")) {
-    const answer = await p.confirm({
-      message: `"${projectName}" already exists and is not empty. Delete its contents and continue?`,
-      initialValue: false,
-    });
-    if (p.isCancel(answer) || !answer) exitCancelled();
+    if (!options.assumeYes) {
+      const answer = await p.confirm({
+        message: `"${projectName}" already exists and is not empty. Delete its contents and continue?`,
+        initialValue: false,
+      });
+      if (p.isCancel(answer) || !answer) exitCancelled();
+    }
     overwrite = true;
   }
 
-  const selection = await selectPackageManager(preselectedPm);
+  const selection = await selectPackageManager(options.packageManager, options.assumeYes);
   scaffoldVite(selection, projectDir, projectName, overwrite);
 
   p.outro(`Done! Vite project "${projectName}" is ready.`);
 }
 
-main();
+if (import.meta.main) main();
