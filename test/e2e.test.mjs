@@ -18,7 +18,9 @@ describe("real create-vite run", { skip: enabled ? false : "set RONINS_E2E=1 to 
   after(() => rmSync(workDir, { recursive: true, force: true }));
 
   test(`scaffolds a working React project with ${PACKAGE_MANAGER}`, () => {
-    const result = spawnSync(process.execPath, [CLI_PATH, "e2e-app", "--pm", PACKAGE_MANAGER], {
+    // --yes keeps it non-interactive: the package manager may be missing here,
+    // and installing it is part of what this test covers.
+    const result = spawnSync(process.execPath, [CLI_PATH, "e2e-app", "--pm", PACKAGE_MANAGER, "--yes"], {
       cwd: workDir,
       encoding: "utf8",
       timeout: 180_000,

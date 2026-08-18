@@ -7,6 +7,7 @@ on:
 
 jobs:
   test:
+    name: tests (node ${{ matrix.node-version }})
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -16,20 +17,29 @@ jobs:
       - uses: actions/setup-node@v7
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm install
+      - uses: oven-sh/setup-bun@v2
+      - run: bun install --frozen-lockfile
       - run: npm test
 
-  # Catches upstream changes: if create-vite stops accepting our flags, this
-  # fails even though the stubbed suite still passes.
+  # The stubbed suite proves our logic on every push; this proves the commands
+  # we send still work against the real create-vite, once per package manager.
+  # pnpm and yarn are deliberately not preinstalled, so the CLI has to install
+  # them itself the way a first-time user would.
   real-scaffold:
+    name: real scaffold (${{ matrix.package-manager }})
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        package-manager: [bun, pnpm, npm, yarn]
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
         with:
           node-version: "24"
       - uses: oven-sh/setup-bun@v2
-      - run: npm install
+      - run: bun install --frozen-lockfile
       - run: node --test "test/e2e.test.mjs"
         env:
           RONINS_E2E: "1"
+          RONINS_E2E_PM: ${{ matrix.package-manager }}
