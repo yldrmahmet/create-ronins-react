@@ -3,6 +3,7 @@ import { spawnSync } from "node:child_process";
 import { existsSync } from "node:fs";
 import { homedir } from "node:os";
 import { join } from "node:path";
+import { styleText } from "node:util";
 import * as p from "@clack/prompts";
 
 const isWindows = process.platform === "win32";
@@ -85,10 +86,15 @@ async function selectPackageManager(preselected) {
   if (!choice) {
     choice = await p.select({
       message: "Which package manager do you want to use?",
+      // Status lives in the label (not `hint`) so every option shows it at once —
+      // clack renders hints only for the focused option.
       options: detections.map(({ pm, found }) => ({
         value: pm.name,
-        label: pm.name,
-        hint: found ? `installed v${found.version}` : "not installed",
+        label: `${pm.name.padEnd(5)} ${
+          found
+            ? styleText("green", `installed v${found.version}`)
+            : styleText("yellow", "not installed")
+        }`,
       })),
     });
     if (p.isCancel(choice)) exitCancelled();
