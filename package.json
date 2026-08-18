@@ -5,8 +5,7 @@
   "type": "module",
   "bin": "./index.js",
   "files": [
-    "index.js",
-    "README.md"
+    "index.js"
   ],
   "scripts": {
     "test": "node --test \"test/*.test.mjs\""
