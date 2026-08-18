@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 import { spawnSync } from "node:child_process";
-import { existsSync } from "node:fs";
+import { existsSync, readdirSync } from "node:fs";
 import { homedir } from "node:os";
-import { join } from "node:path";
+import { join, resolve } from "node:path";
 import { styleText } from "node:util";
 import * as p from "@clack/prompts";
 
@@ -136,12 +136,15 @@ async function selectPackageManager(preselected) {
   return { pm: selected.pm, found };
 }
 
-function scaffoldVite({ pm, found }, projectName) {
+function scaffoldVite({ pm, found }, projectDir, projectName, overwrite) {
   const [, ...args] = pm.createVite(projectName);
+  if (overwrite) args.push("--overwrite");
   p.log.step(`Creating Vite project with: ${pm.name} ${args.join(" ")}`);
   const result = spawnSync(found.binary, args, { shell: isWindows, stdio: "inherit" });
-  if (result.status !== 0) {
-    p.log.error("Vite scaffolding failed.");
+  // create-vite exits 0 even when it cancels (non-empty target directory),
+  // so the generated package.json is the only reliable success signal.
+  if (result.status !== 0 || !existsSync(join(projectDir, "package.json"))) {
+    p.log.error(`Vite scaffolding failed. "${projectName}" was not created.`);
     process.exit(1);
   }
 }
@@ -169,8 +172,19 @@ async function main() {
     if (p.isCancel(projectName)) exitCancelled();
   }
 
+  const projectDir = resolve(process.cwd(), projectName);
+  let overwrite = false;
+  if (existsSync(projectDir) && readdirSync(projectDir).some((entry) => entry !== ".git")) {
+    const answer = await p.confirm({
+      message: `"${projectName}" already exists and is not empty. Delete its contents and continue?`,
+      initialValue: false,
+    });
+    if (p.isCancel(answer) || !answer) exitCancelled();
+    overwrite = true;
+  }
+
   const selection = await selectPackageManager(preselectedPm);
-  scaffoldVite(selection, projectName);
+  scaffoldVite(selection, projectDir, projectName, overwrite);
 
   p.outro(`Done! Vite project "${projectName}" is ready.`);
 }
