@@ -17,8 +17,8 @@ const PACKAGE_MANAGERS = [
     createVite: (name) => ["bun", "create", "vite", name, "--template", VITE_TEMPLATE, "--no-interactive"],
     // Official install methods: bun.com/docs/installation
     installCommand: "npm install -g bun",
-    // Fallback location when installed outside the current PATH
-    knownBinPaths: [join(homedir(), ".bun", "bin", isWindows ? "bun.exe" : "bun")],
+    // Searched when a fresh install has not reached PATH yet
+    knownBinDirs: [join(homedir(), ".bun")],
   },
   {
     name: "pnpm",
@@ -27,25 +27,25 @@ const PACKAGE_MANAGERS = [
     installCommand: isWindows
       ? "npx get-pnpm"
       : "curl -fsSL https://get.pnpm.io/install.sh | sh -",
-    knownBinPaths: [
-      process.env.PNPM_HOME && join(process.env.PNPM_HOME, isWindows ? "pnpm.exe" : "pnpm"),
-      join(homedir(), "Library", "pnpm", "pnpm"),
-      join(homedir(), ".local", "share", "pnpm", "pnpm"),
-      join(homedir(), "AppData", "Local", "pnpm", "pnpm.exe"),
+    knownBinDirs: [
+      process.env.PNPM_HOME,
+      join(homedir(), "Library", "pnpm"),
+      join(homedir(), ".local", "share", "pnpm"),
+      join(homedir(), "AppData", "Local", "pnpm"),
     ].filter(Boolean),
   },
   {
     name: "npm",
     createVite: (name) => ["npm", "create", "vite@latest", name, "--yes", "--", "--template", VITE_TEMPLATE, "--no-interactive"],
     installCommand: null, // ships with Node.js
-    knownBinPaths: [],
+    knownBinDirs: [],
   },
   {
     name: "yarn",
     createVite: (name) => ["yarn", "create", "vite", name, "--template", VITE_TEMPLATE, "--no-interactive"],
     // Official install method: yarnpkg.com/getting-started/install (Corepack)
     installCommand: "npm install -g corepack && corepack enable yarn",
-    knownBinPaths: [],
+    knownBinDirs: [],
   },
 ];
 
@@ -61,10 +61,15 @@ function detectVersion(binary) {
 function detect(pm) {
   const version = detectVersion(pm.name);
   if (version) return { binary: pm.name, version };
-  for (const binPath of pm.knownBinPaths) {
-    if (existsSync(binPath)) {
-      const pathVersion = detectVersion(binPath);
-      if (pathVersion) return { binary: binPath, version: pathVersion };
+
+  const executable = isWindows ? `${pm.name}.exe` : pm.name;
+  for (const dir of pm.knownBinDirs) {
+    // Installers disagree on whether the binary sits in the directory itself
+    // or in a bin/ inside it, so try both.
+    for (const candidate of [join(dir, executable), join(dir, "bin", executable)]) {
+      if (!existsSync(candidate)) continue;
+      const candidateVersion = detectVersion(candidate);
+      if (candidateVersion) return { binary: candidate, version: candidateVersion };
     }
   }
   return null;

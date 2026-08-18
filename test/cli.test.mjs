@@ -131,6 +131,21 @@ describe("package manager missing", () => {
     assert.ok(projectExists("my-app"));
   });
 
+  test("finds an install that landed in a bin/ subdirectory", () => {
+    // The Linux pnpm installer puts the binary in ~/.local/share/pnpm/bin,
+    // while macOS installs have it one level up. Both must be found.
+    writeInstallerStub(sandbox, "curl", {
+      installs: "pnpm",
+      destination: join(sandbox.homeDir, ".local", "share", "pnpm", "bin", "pnpm"),
+      version: "11.22.0",
+    });
+
+    const result = runCli(sandbox, ["my-app", "--pm", "pnpm"], { input: "y" });
+
+    assert.equal(result.status, 0, result.output);
+    assert.ok(projectExists("my-app"));
+  });
+
   test("an install that leaves nothing behind asks the user to restart the shell", () => {
     writeStub(
       sandbox,
