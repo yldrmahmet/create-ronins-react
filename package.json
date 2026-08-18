@@ -1,27 +1,26 @@
 {
   "name": "create-ronins-react",
-  "version": "1.4.0",
-  "description": "Create production-ready React apps with Vite 7, TypeScript, Tailwind CSS 4, shadcn/ui, React Router 7, TanStack Query. Zero config, modern stack.",
+  "version": "2.0.0",
+  "description": "Interactive scaffolder for production-ready React apps: pick your package manager, then get the latest Vite, TypeScript and Tailwind CSS.",
   "type": "module",
   "bin": "./index.js",
   "files": [
-    "index.js",
-    "template",
-    "README.md"
+    "index.js"
   ],
+  "scripts": {
+    "test": "node --test \"test/*.test.mjs\""
+  },
   "keywords": [
     "create",
     "react",
     "react-19",
     "vite",
-    "vite-7",
+    "vite-8",
     "tailwind",
     "tailwindcss",
     "tailwind-4",
     "typescript",
-    "shadcn",
-    "shadcn-ui",
-    "template",
+    "oxlint",
     "starter",
     "boilerplate",
     "scaffold",
@@ -30,28 +29,19 @@
     "cra-alternative",
     "react-template",
     "react-starter",
-    "react-boilerplate",
     "vite-react",
     "vite-template",
-    "react-router",
-    "react-router-7",
-    "tanstack-query",
-    "react-query",
-    "zod",
-    "eslint-9",
-    "vitest",
-    "husky",
     "bun",
+    "pnpm",
     "modern-react",
     "production-ready",
-    "enterprise",
     "frontend",
     "spa",
     "cli"
   ],
   "author": "yldrmahmet",
   "license": "MIT",
-  "homepage": "https://package.roninslab.com",
+  "homepage": "https://github.com/yldrmahmet/create-ronins-react#readme",
   "repository": {
     "type": "git",
     "url": "https://github.com/yldrmahmet/create-ronins-react"
@@ -64,6 +54,9 @@
     "url": "https://github.com/sponsors/yldrmahmet"
   },
   "engines": {
-    "node": ">=20.19.0"
+    "node": ">=22.18.0"
+  },
+  "dependencies": {
+    "@clack/prompts": "^1.7.0"
   }
 }
