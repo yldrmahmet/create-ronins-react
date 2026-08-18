@@ -210,7 +210,7 @@ export default defineConfig({
   },
 
   title: 'Ronins React | Stop Researching. Start Building.',
-  description: 'A production-ready React 19 starter with battle-tested defaults. Features Vite 7, Tailwind CSS 4, TypeScript, SWC, and shadcn/ui. Zero config.',
+  description: 'A production-ready React 19 starter with battle-tested defaults. Features Vite 8, Tailwind CSS 4, TypeScript, and shadcn/ui. Zero config.',
 
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }]

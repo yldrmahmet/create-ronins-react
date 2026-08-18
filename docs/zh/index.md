@@ -16,7 +16,7 @@ hero:
 features:
   - icon:
       src: /vite.svg
-    title: Vite 7 + SWC
+    title: Vite 8 + Rolldown
     details: 闪电般快速的开发体验，即时热更新和优化构建
   - icon:
       src: /tailwind.svg
@@ -55,13 +55,13 @@ Ronins React 不仅仅是一个模板。它是**经过深思熟虑的精选**。
 
 | 你需要什么 | 我们选择了 | 为什么 |
 |------------|-----------|--------|
-| 构建工具 | Vite 7 + SWC | 最快的开发服务器，即时热更新 |
+| 构建工具 | Vite 8 + Rolldown | 最快的开发服务器，即时热更新 |
 | 样式 | Tailwind CSS 4 | 行业标准，零运行时 |
 | 组件 | shadcn/ui | 拥有你的代码，而不是依赖 |
-| 路由 | React Router 7 | 最流行，React 团队认可 |
+| 路由 | React Router 8 | 最流行，React 团队认可 |
 | 服务器状态 | TanStack Query 5 | 最佳缓存和同步 |
 | 验证 | Zod 4 | TypeScript 优先，运行时安全 |
-| 代码质量 | ESLint 9 + Prettier | 干净、无错误的代码 |
+| 代码质量 | ESLint 10 + Prettier | 干净、无错误的代码 |
 
 ### 为什么不用其他选择？
 

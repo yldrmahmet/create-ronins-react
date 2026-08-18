@@ -6,7 +6,7 @@
 
 <a href="https://vite.dev" class="tech-card" target="_blank">
   <img src="/images/vite.svg" alt="Vite" />
-  <h3>Vite 7</h3>
+  <h3>Vite 8</h3>
   <p>즉각적인 HMR을 가진 빌드 도구</p>
 </a>
 
@@ -36,7 +36,7 @@
 
 <a href="https://reactrouter.com" class="tech-card" target="_blank">
   <img src="/images/reactrouter.svg" alt="React Router" />
-  <h3>React Router 7</h3>
+  <h3>React Router 8</h3>
   <p>클라이언트 사이드 라우팅</p>
 </a>
 
@@ -54,7 +54,7 @@
 
 <a href="https://eslint.org" class="tech-card" target="_blank">
   <img src="/images/eslint.svg" alt="ESLint" />
-  <h3>ESLint 9</h3>
+  <h3>ESLint 10</h3>
   <p>코드에서 버그 찾기</p>
 </a>
 

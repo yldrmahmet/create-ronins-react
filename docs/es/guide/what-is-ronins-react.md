@@ -65,14 +65,14 @@ Ronins React usa Vite. Vite es **10 veces más rápido**.
 
 | Necesitas | Te Damos | Por Qué Este |
 |-----------|----------|--------------|
-| Build tool | Vite 7 | Muy rápido |
+| Build tool | Vite 8 | Muy rápido |
 | Lenguaje | TypeScript | Encuentra bugs temprano |
 | Estilos | Tailwind CSS 4 | Fácil de usar |
 | Componentes | shadcn/ui | Tú tienes el código |
-| Páginas | React Router 7 | Más popular |
+| Páginas | React Router 8 | Más popular |
 | Llamadas API | TanStack Query 5 | Mejor caché |
 | Validación | Zod 4 | Type safe |
-| Buscador de bugs | ESLint 9 | Reglas modernas |
+| Buscador de bugs | ESLint 10 | Reglas modernas |
 | Formateador | Prettier | Código limpio |
 | Hooks git | Husky | Verifica antes de commit |
 | Testing | Vitest | Tests rápidos |

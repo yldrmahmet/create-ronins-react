@@ -16,7 +16,7 @@ hero:
 features:
   - icon:
       src: /vite.svg
-    title: Vite 7 + SWC
+    title: Vite 8 + Rolldown
     details: 即座の HMR と最適化されたビルドによる超高速開発
   - icon:
       src: /tailwind.svg
@@ -55,13 +55,13 @@ Ronins React は単なるテンプレートではありません。**こだわ�
 
 | 必要なもの | 私たちの選択 | 理由 |
 |-----------|-------------|------|
-| ビルドツール | Vite 7 + SWC | 最速の開発サーバー、即座の HMR |
+| ビルドツール | Vite 8 + Rolldown | 最速の開発サーバー、即座の HMR |
 | スタイリング | Tailwind CSS 4 | 業界標準、ゼロランタイム |
 | コンポーネント | shadcn/ui | 依存関係ではなく、あなたのコード |
-| ルーティング | React Router 7 | 最も人気、React チーム推奨 |
+| ルーティング | React Router 8 | 最も人気、React チーム推奨 |
 | サーバー状態 | TanStack Query 5 | 最高のキャッシュと同期 |
 | バリデーション | Zod 4 | TypeScript ファースト、ランタイム安全 |
-| コード品質 | ESLint 9 + Prettier | クリーンでエラーのないコード |
+| コード品質 | ESLint 10 + Prettier | クリーンでエラーのないコード |
 
 ### なぜ他の選択肢ではないのか？
 

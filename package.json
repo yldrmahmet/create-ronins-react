@@ -1,7 +1,7 @@
 {
   "name": "create-ronins-react",
-  "version": "1.4.0",
-  "description": "Create production-ready React apps with Vite 7, TypeScript, Tailwind CSS 4, shadcn/ui, React Router 7, TanStack Query. Zero config, modern stack.",
+  "version": "2.0.0",
+  "description": "Create production-ready React apps with Vite 8, TypeScript, Tailwind CSS 4, shadcn/ui, React Router 8, TanStack Query. Zero config, modern stack.",
   "type": "module",
   "bin": "./index.js",
   "files": [
@@ -14,7 +14,7 @@
     "react",
     "react-19",
     "vite",
-    "vite-7",
+    "vite-8",
     "tailwind",
     "tailwindcss",
     "tailwind-4",
@@ -34,11 +34,11 @@
     "vite-react",
     "vite-template",
     "react-router",
-    "react-router-7",
+    "react-router-8",
     "tanstack-query",
     "react-query",
     "zod",
-    "eslint-9",
+    "eslint-10",
     "vitest",
     "husky",
     "bun",
@@ -64,6 +64,6 @@
     "url": "https://github.com/sponsors/yldrmahmet"
   },
   "engines": {
-    "node": ">=20.19.0"
+    "node": ">=22.22.0"
   }
 }

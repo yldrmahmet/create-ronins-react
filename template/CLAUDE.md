@@ -4,15 +4,15 @@
 
 | Category      | Tool                       |
 |---------------|----------------------------|
-| Build         | Vite 7 + SWC               |
+| Build         | Vite 8 + Rolldown          |
 | Framework     | React 19                   |
 | Language      | TypeScript 5.9             |
 | Styling       | Tailwind CSS 4             |
 | UI Components | shadcn/ui                  |
-| Routing       | React Router 7             |
+| Routing       | React Router 8             |
 | Server State  | TanStack Query 5           |
 | Validation    | Zod 4                      |
-| Linting       | ESLint 9 (flat config)     |
+| Linting       | ESLint 10 (flat config)    |
 | Formatting    | Prettier + Tailwind plugin |
 | Git Hooks     | Husky                      |
 | Dead Code     | Knip                       |

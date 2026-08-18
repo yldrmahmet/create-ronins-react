@@ -16,7 +16,7 @@ hero:
 features:
   - icon:
       src: /vite.svg
-    title: Vite 7 + SWC
+    title: Vite 8 + Rolldown
     details: 즉각적인 HMR과 최적화된 빌드로 번개처럼 빠른 개발
   - icon:
       src: /tailwind.svg
@@ -55,13 +55,13 @@ Ronins React는 단순한 템플릿이 아닙니다. **의견이 담긴 큐레�
 
 | 필요한 것 | 우리의 선택 | 이유 |
 |----------|-----------|------|
-| 빌드 도구 | Vite 7 + SWC | 가장 빠른 개발 서버, 즉각적인 HMR |
+| 빌드 도구 | Vite 8 + Rolldown | 가장 빠른 개발 서버, 즉각적인 HMR |
 | 스타일링 | Tailwind CSS 4 | 업계 표준, 제로 런타임 |
 | 컴포넌트 | shadcn/ui | 의존성이 아닌 당신의 코드 |
-| 라우팅 | React Router 7 | 가장 인기, React 팀 승인 |
+| 라우팅 | React Router 8 | 가장 인기, React 팀 승인 |
 | 서버 상태 | TanStack Query 5 | 최고의 캐싱과 동기화 |
 | 유효성 검사 | Zod 4 | TypeScript 우선, 런타임 안전 |
-| 코드 품질 | ESLint 9 + Prettier | 깨끗하고 오류 없는 코드 |
+| 코드 품질 | ESLint 10 + Prettier | 깨끗하고 오류 없는 코드 |
 
 ### 왜 다른 옵션이 아닌가?
 

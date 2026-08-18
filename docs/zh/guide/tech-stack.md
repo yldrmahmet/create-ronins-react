@@ -6,7 +6,7 @@
 
 <a href="https://vite.dev" class="tech-card" target="_blank">
   <img src="/images/vite.svg" alt="Vite" />
-  <h3>Vite 7</h3>
+  <h3>Vite 8</h3>
   <p>即时热更新的构建工具</p>
 </a>
 
@@ -36,7 +36,7 @@
 
 <a href="https://reactrouter.com" class="tech-card" target="_blank">
   <img src="/images/reactrouter.svg" alt="React Router" />
-  <h3>React Router 7</h3>
+  <h3>React Router 8</h3>
   <p>客户端路由</p>
 </a>
 
@@ -54,7 +54,7 @@
 
 <a href="https://eslint.org" class="tech-card" target="_blank">
   <img src="/images/eslint.svg" alt="ESLint" />
-  <h3>ESLint 9</h3>
+  <h3>ESLint 10</h3>
   <p>查找代码中的 bug</p>
 </a>
 

@@ -61,14 +61,14 @@ npm create ronins-react@latest my-app --clean
 | Feature | create-ronins-react | create-vite | CRA | create-t3-app |
 |---------|:------------------:|:-----------:|:---:|:-------------:|
 | React 19 | ✅ | ✅ | ❌ | ✅ |
-| Vite 7 | ✅ | ✅ | ❌ | ✅ |
+| Vite 8 | ✅ | ✅ | ❌ | ✅ |
 | Tailwind CSS 4 | ✅ | ❌ | ❌ | ✅ |
 | shadcn/ui ready | ✅ | ❌ | ❌ | ❌ |
 | TypeScript 5.9 | ✅ | ✅ | ✅ | ✅ |
-| React Router 7 | ✅ | ❌ | ❌ | ❌ |
+| React Router 8 | ✅ | ❌ | ❌ | ❌ |
 | TanStack Query | ✅ | ❌ | ❌ | ✅ |
 | Zod 4 | ✅ | ❌ | ❌ | ✅ |
-| ESLint 9 (flat config) | ✅ | ✅ | ❌ | ✅ |
+| ESLint 10 (flat config) | ✅ | ✅ | ❌ | ✅ |
 | Vitest | ✅ | ❌ | ❌ | ✅ |
 | Husky + Git Hooks | ✅ | ❌ | ❌ | ❌ |
 | Bun support | ✅ | ✅ | ❌ | ✅ |
@@ -85,7 +85,7 @@ npm create ronins-react@latest my-app --clean
 
 **create-ronins-react** gives you:
 
-- Latest stable versions of everything (React 19, Vite 7, Tailwind 4)
+- Latest stable versions of everything (React 19, Vite 8, Tailwind 4)
 - Production-ready defaults (linting, formatting, testing, git hooks)
 - shadcn/ui pre-configured - just run `bunx shadcn add button`
 - Works with npm, yarn, pnpm, and bun
@@ -97,7 +97,7 @@ npm create ronins-react@latest my-app --clean
 
 | Category | Tool | Version |
 |----------|------|---------|
-| Build | Vite + SWC | 7.x |
+| Build | Vite + Rolldown | 8.x |
 | Framework | React | 19.x |
 | Language | TypeScript | 5.9 |
 | Styling | Tailwind CSS | 4.x |

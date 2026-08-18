@@ -2,15 +2,15 @@ import { Link } from "react-router";
 import { Button } from "@/components/ui/button";
 
 const stack = [
-  { category: "Build", tool: "Vite 7 + SWC" },
+  { category: "Build", tool: "Vite 8 + Rolldown" },
   { category: "Framework", tool: "React 19" },
   { category: "Language", tool: "TypeScript 5.9" },
   { category: "Styling", tool: "Tailwind CSS 4" },
   { category: "UI Components", tool: "shadcn/ui" },
-  { category: "Routing", tool: "React Router 7" },
+  { category: "Routing", tool: "React Router 8" },
   { category: "Server State", tool: "TanStack Query 5" },
   { category: "Validation", tool: "Zod 4" },
-  { category: "Linting", tool: "ESLint 9" },
+  { category: "Linting", tool: "ESLint 10" },
   { category: "Formatting", tool: "Prettier" },
   { category: "Git Hooks", tool: "Husky" },
   { category: "Dead Code", tool: "Knip" },

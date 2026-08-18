@@ -16,7 +16,7 @@ hero:
 features:
   - icon:
       src: /images/vite.svg
-    title: Vite 7 + SWC
+    title: Vite 8 + Rolldown
     details: Anında değişiklik yansıması ve optimize edilmiş derleme ile süper hızlı geliştirme
   - icon:
       src: /images/tailwind.svg
@@ -55,13 +55,13 @@ Birçok aracı denedik ve en iyilerini seçtik:
 
 | Ne Gerekiyor | Ne Seçtik | Neden |
 |--------------|-----------|-------|
-| Derleme Aracı | Vite 7 + SWC | En hızlı geliştirme ortamı, anında yansıma |
+| Derleme Aracı | Vite 8 + Rolldown | En hızlı geliştirme ortamı, anında yansıma |
 | Stil | Tailwind CSS 4 | Sektör standardı, ekstra yük yok |
 | Bileşenler | shadcn/ui | Kod sende, bağımlılık değil |
-| Sayfa Yönetimi | React Router 7 | En yaygın, React ekibi destekliyor |
+| Sayfa Yönetimi | React Router 8 | En yaygın, React ekibi destekliyor |
 | Veri Yönetimi | TanStack Query 5 | En iyi önbellekleme ve senkronizasyon |
 | Doğrulama | Zod 4 | TypeScript uyumlu, güvenli |
-| Kod Kalitesi | ESLint 9 + Prettier | Temiz, hatasız kod |
+| Kod Kalitesi | ESLint 10 + Prettier | Temiz, hatasız kod |
 
 ### Neden Başka Seçenekler Değil?
 

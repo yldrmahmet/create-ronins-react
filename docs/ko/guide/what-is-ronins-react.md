@@ -65,14 +65,14 @@ Ronins React는 Vite를 사용합니다. Vite는 **10배 빠릅니다**.
 
 | 필요한 것 | 제공하는 것 | 왜 이것인가 |
 |----------|-----------|-----------|
-| 빌드 도구 | Vite 7 | 매우 빠름 |
+| 빌드 도구 | Vite 8 | 매우 빠름 |
 | 언어 | TypeScript | 버그 조기 발견 |
 | 스타일링 | Tailwind CSS 4 | 사용하기 쉬움 |
 | 컴포넌트 | shadcn/ui | 코드를 소유함 |
-| 페이지 | React Router 7 | 가장 인기 |
+| 페이지 | React Router 8 | 가장 인기 |
 | API 호출 | TanStack Query 5 | 최고의 캐싱 |
 | 유효성 검사 | Zod 4 | 타입 안전 |
-| 버그 찾기 | ESLint 9 | 현대적인 규칙 |
+| 버그 찾기 | ESLint 10 | 현대적인 규칙 |
 | 포맷터 | Prettier | 깨끗한 코드 |
 | Git 훅 | Husky | 커밋 전 체크 |
 | 테스팅 | Vitest | 빠른 테스트 |

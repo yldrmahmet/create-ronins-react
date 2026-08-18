@@ -16,7 +16,7 @@ hero:
 features:
   - icon:
       src: /vite.svg
-    title: Vite 7 + SWC
+    title: Vite 8 + Rolldown
     details: Desenvolvimento ultrarrápido com HMR instantâneo e builds otimizados
   - icon:
       src: /tailwind.svg
@@ -55,13 +55,13 @@ Testamos muitas ferramentas e escolhemos as melhores:
 
 | O Que Você Precisa | O Que Escolhemos | Por Quê |
 |--------------------|------------------|---------|
-| Build Tool | Vite 7 + SWC | Servidor dev mais rápido, HMR instantâneo |
+| Build Tool | Vite 8 + Rolldown | Servidor dev mais rápido, HMR instantâneo |
 | Estilos | Tailwind CSS 4 | Padrão da indústria, zero runtime |
 | Componentes | shadcn/ui | Seu código, não uma dependência |
-| Roteamento | React Router 7 | Mais popular, endossado pelo time React |
+| Roteamento | React Router 8 | Mais popular, endossado pelo time React |
 | Estado do Servidor | TanStack Query 5 | Melhor cache e sincronização |
 | Validação | Zod 4 | TypeScript-first, seguro em runtime |
-| Qualidade de Código | ESLint 9 + Prettier | Código limpo, sem erros |
+| Qualidade de Código | ESLint 10 + Prettier | Código limpo, sem erros |
 
 ### Por Que Não Outras Opções?
 

@@ -65,14 +65,14 @@ Ronins React 使用 Vite。Vite **快 10 倍**。
 
 | 你需要 | 我们提供 | 为什么选择这个 |
 |--------|---------|---------------|
-| 构建工具 | Vite 7 | 非常快 |
+| 构建工具 | Vite 8 | 非常快 |
 | 语言 | TypeScript | 尽早发现 bug |
 | 样式 | Tailwind CSS 4 | 易于使用 |
 | 组件 | shadcn/ui | 你拥有代码 |
-| 页面 | React Router 7 | 最流行 |
+| 页面 | React Router 8 | 最流行 |
 | API 调用 | TanStack Query 5 | 最佳缓存 |
 | 验证 | Zod 4 | 类型安全 |
-| Bug 查找器 | ESLint 9 | 现代规则 |
+| Bug 查找器 | ESLint 10 | 现代规则 |
 | 格式化器 | Prettier | 干净的代码 |
 | Git 钩子 | Husky | 提交前检查 |
 | 测试 | Vitest | 快速测试 |

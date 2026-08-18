@@ -65,14 +65,14 @@ Ronins React Vite kullanıyor. Vite **10 kat daha hızlı**.
 
 | İhtiyaç | Çözüm | Neden Bu |
 |---------|-------|----------|
-| Derleme aracı | Vite 7 | Süper hızlı |
+| Derleme aracı | Vite 8 | Süper hızlı |
 | Dil | TypeScript | Hataları erkenden yakalar |
 | Stil | Tailwind CSS 4 | Kullanımı kolay |
 | Bileşenler | shadcn/ui | Kod sana ait |
-| Sayfalar | React Router 7 | En yaygın |
+| Sayfalar | React Router 8 | En yaygın |
 | API istekleri | TanStack Query 5 | En iyi önbellekleme |
 | Doğrulama | Zod 4 | Tip güvenli |
-| Hata yakalama | ESLint 9 | Güncel kurallar |
+| Hata yakalama | ESLint 10 | Güncel kurallar |
 | Kod düzeni | Prettier | Tutarlı kod |
 | Commit kontrolü | Husky | Kalite garantisi |
 | Test | Vitest | Hızlı testler |

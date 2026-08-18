@@ -6,7 +6,7 @@ Todas las herramientas incluidas en tu app:
 
 <a href="https://vite.dev" class="tech-card" target="_blank">
   <img src="/images/vite.svg" alt="Vite" />
-  <h3>Vite 7</h3>
+  <h3>Vite 8</h3>
   <p>Build tool con HMR instantáneo</p>
 </a>
 
@@ -36,7 +36,7 @@ Todas las herramientas incluidas en tu app:
 
 <a href="https://reactrouter.com" class="tech-card" target="_blank">
   <img src="/images/reactrouter.svg" alt="React Router" />
-  <h3>React Router 7</h3>
+  <h3>React Router 8</h3>
   <p>Routing del lado cliente</p>
 </a>
 
@@ -54,7 +54,7 @@ Todas las herramientas incluidas en tu app:
 
 <a href="https://eslint.org" class="tech-card" target="_blank">
   <img src="/images/eslint.svg" alt="ESLint" />
-  <h3>ESLint 9</h3>
+  <h3>ESLint 10</h3>
   <p>Encontrar bugs en código</p>
 </a>
 
