@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { spawnSync } from "node:child_process";
-import { existsSync, readdirSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
 import { homedir } from "node:os";
 import { join, resolve } from "node:path";
 import { styleText } from "node:util";
@@ -176,6 +176,28 @@ export function parseArgs(argv) {
   return options;
 }
 
+// Everything create-vite ships purely to demo itself.
+const DEMO_FILES = ["src/App.css", "src/assets", "public/icons.svg", "public/favicon.svg"];
+
+function blankSlate(projectDir, projectName) {
+  p.log.step("Removing the Vite demo page");
+
+  for (const relativePath of DEMO_FILES) {
+    rmSync(join(projectDir, relativePath), { recursive: true, force: true });
+  }
+
+  writeFileSync(
+    join(projectDir, "src", "App.tsx"),
+    `export default function App() {\n  return <h1>${projectName}</h1>\n}\n`,
+  );
+  // Left empty on purpose: this is where the styling step writes its import.
+  writeFileSync(join(projectDir, "src", "index.css"), "");
+
+  const indexHtmlPath = join(projectDir, "index.html");
+  const withoutFavicon = readFileSync(indexHtmlPath, "utf8").replace(/^[ \t]*<link rel="icon"[^\n]*\n/m, "");
+  writeFileSync(indexHtmlPath, withoutFavicon);
+}
+
 async function main() {
   let options;
   try {
@@ -215,8 +237,9 @@ async function main() {
 
   const selection = await selectPackageManager(options.packageManager, options.assumeYes);
   scaffoldVite(selection, projectDir, projectName, overwrite);
+  blankSlate(projectDir, projectName);
 
-  p.outro(`Done! Vite project "${projectName}" is ready.`);
+  p.outro(`Done! "${projectName}" is ready with a blank page.`);
 }
 
 if (import.meta.main) main();

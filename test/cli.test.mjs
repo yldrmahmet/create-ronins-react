@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { existsSync, mkdirSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { afterEach, beforeEach, describe, test } from "node:test";
 import {
@@ -197,6 +197,53 @@ describe("target directory", () => {
     assert.equal(result.status, 0, result.output);
     const createCall = readCalls(sandbox).find((call) => call.includes("create"));
     assert.ok(!createCall.includes("--overwrite"));
+  });
+});
+
+describe("blank slate", () => {
+  function readProjectFile(...segments) {
+    return readFileSync(join(sandbox.workDir, "my-app", ...segments), "utf8");
+  }
+
+  test("deletes every demo file the template ships with", () => {
+    writePackageManagerStub(sandbox, "bun");
+
+    runCli(sandbox, ["my-app", "--pm", "bun"]);
+
+    for (const removed of ["src/App.css", "src/assets", "public/icons.svg", "public/favicon.svg"]) {
+      assert.ok(!existsSync(join(sandbox.workDir, "my-app", removed)), `${removed} should be gone`);
+    }
+  });
+
+  test("replaces the demo component with a blank page named after the project", () => {
+    writePackageManagerStub(sandbox, "bun");
+
+    runCli(sandbox, ["my-app", "--pm", "bun"]);
+
+    const app = readProjectFile("src", "App.tsx");
+    assert.match(app, /export default function App\(\)/);
+    assert.match(app, /<h1>my-app<\/h1>/);
+    assert.doesNotMatch(app, /App\.css/);
+  });
+
+  test("empties the stylesheet without deleting it", () => {
+    writePackageManagerStub(sandbox, "bun");
+
+    runCli(sandbox, ["my-app", "--pm", "bun"]);
+
+    // main.tsx still imports it, so the file has to exist
+    assert.equal(readProjectFile("src", "index.css"), "");
+    assert.ok(existsSync(join(sandbox.workDir, "my-app", "src", "main.tsx")));
+  });
+
+  test("drops the favicon link so nothing points at a deleted file", () => {
+    writePackageManagerStub(sandbox, "bun");
+
+    runCli(sandbox, ["my-app", "--pm", "bun"]);
+
+    const html = readProjectFile("index.html");
+    assert.doesNotMatch(html, /rel="icon"/);
+    assert.match(html, /<title>my-app<\/title>/);
   });
 });
 

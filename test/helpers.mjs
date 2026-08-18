@@ -70,8 +70,18 @@ export function writePackageManagerStub(sandbox, name, { version = "1.0.0", dir 
       `  process.exit(0);\n` +
       `}\n` +
       `if (overwrite) for (const entry of existing) rmSync(join(target, entry), { recursive: true, force: true });\n` +
-      `mkdirSync(target, { recursive: true });\n` +
-      `writeFileSync(join(target, "package.json"), JSON.stringify({ name: target }, null, 2));\n`,
+      // Mirrors the react-ts template closely enough to test the cleanup step
+      `mkdirSync(join(target, "src", "assets"), { recursive: true });\n` +
+      `mkdirSync(join(target, "public"), { recursive: true });\n` +
+      `writeFileSync(join(target, "package.json"), JSON.stringify({ name: target }, null, 2));\n` +
+      `writeFileSync(join(target, "index.html"), '<!doctype html>\\n<html>\\n  <head>\\n    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />\\n    <title>' + target + '</title>\\n  </head>\\n</html>\\n');\n` +
+      `writeFileSync(join(target, "src", "App.tsx"), "import './App.css'\\nfunction App() { return <div>demo</div> }\\nexport default App\\n");\n` +
+      `writeFileSync(join(target, "src", "App.css"), ".logo { padding: 2em }\\n");\n` +
+      `writeFileSync(join(target, "src", "index.css"), ":root { --accent: #aa3bff }\\n");\n` +
+      `writeFileSync(join(target, "src", "main.tsx"), "import './index.css'\\n");\n` +
+      `writeFileSync(join(target, "src", "assets", "react.svg"), "<svg/>");\n` +
+      `writeFileSync(join(target, "public", "favicon.svg"), "<svg/>");\n` +
+      `writeFileSync(join(target, "public", "icons.svg"), "<svg/>");\n`,
     { dir },
   );
 }
