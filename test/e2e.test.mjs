@@ -35,5 +35,14 @@ describe("real create-vite run", { skip: enabled ? false : "set RONINS_E2E=1 to 
     assert.ok(manifest.dependencies.react, "react should be a dependency of the new project");
     assert.ok(existsSync(join(projectDir, "tsconfig.json")), "expected a TypeScript project");
     assert.ok(existsSync(join(projectDir, ".oxlintrc.json")), "expected Oxlint, not ESLint");
+
+    assert.ok(!existsSync(join(projectDir, "src", "App.css")), "demo styles should be gone");
+    assert.ok(!existsSync(join(projectDir, "src", "assets")), "demo assets should be gone");
+    assert.match(readFileSync(join(projectDir, "src", "App.tsx"), "utf8"), /<h1>e2e-app<\/h1>/);
+
+    assert.equal(readFileSync(join(projectDir, "src", "index.css"), "utf8"), '@import "tailwindcss";\n');
+    assert.match(readFileSync(join(projectDir, "vite.config.ts"), "utf8"), /tailwindcss\(\)/);
+    assert.ok(manifest.dependencies.tailwindcss, "tailwindcss should be installed");
+    assert.ok(existsSync(join(projectDir, "node_modules")), "dependencies should be installed");
   });
 });
