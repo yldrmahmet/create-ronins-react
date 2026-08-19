@@ -236,6 +236,17 @@ describe("blank slate", () => {
     assert.doesNotMatch(readProjectFile("src", "index.css"), /--accent/);
   });
 
+  test("tunes the scripts: browser auto-open and a typecheck command", () => {
+    writePackageManagerStub(sandbox, "bun");
+
+    runCli(sandbox, ["my-app", "--pm", "bun"]);
+
+    const manifest = JSON.parse(readProjectFile("package.json"));
+    assert.equal(manifest.scripts.dev, "vite --open");
+    assert.equal(manifest.scripts.typecheck, "tsc -b");
+    assert.equal(manifest.scripts.build, "tsc -b && vite build", "other scripts must survive");
+  });
+
   test("drops the favicon link so nothing points at a deleted file", () => {
     writePackageManagerStub(sandbox, "bun");
 

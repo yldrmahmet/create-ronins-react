@@ -209,6 +209,19 @@ function blankSlate(projectDir, projectName) {
 // Steps verified against tailwindcss.com/docs/installation/using-vite
 const TAILWIND_PACKAGES = ["tailwindcss", "@tailwindcss/vite"];
 
+function tuneScripts(projectDir) {
+  const manifestPath = join(projectDir, "package.json");
+  const manifest = JSON.parse(readFileSync(manifestPath, "utf8"));
+  manifest.scripts = {
+    ...manifest.scripts,
+    // Opens the browser automatically when the dev server starts
+    dev: "vite --open",
+    // Type checking on demand; the build already runs the same check via tsc -b
+    typecheck: "tsc -b",
+  };
+  writeFileSync(manifestPath, JSON.stringify(manifest, null, 2) + "\n");
+}
+
 function setUpTailwind(projectDir) {
   p.log.step("Wiring up Tailwind CSS");
 
@@ -281,6 +294,7 @@ async function main() {
   const selection = await selectPackageManager(options.packageManager, options.assumeYes);
   scaffoldVite(selection, projectDir, projectName, overwrite);
   blankSlate(projectDir, projectName);
+  tuneScripts(projectDir);
   setUpTailwind(projectDir);
   installDependencies(selection, projectDir);
 
